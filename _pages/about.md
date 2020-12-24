@@ -4,8 +4,4 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
-
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+Hey there. I am the writer and maintainer of this blog, Mitesh Shah. Right now I work as a Software Engineer in Microsoft and love to read up on various topics like Data Science, Machine Learning, Backend Development in my free time. Feel free to connect with my on my socials.
