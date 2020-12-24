@@ -4,9 +4,11 @@ title: About Me
 permalink: /about/
 ---
 
+![Me](https://avatars1.githubusercontent.com/u/19746697?s=400&u=42855f4953f3521626699a9436cb6ffb7a77ea2d&v=4)
+
 Hey there. I am the writer and maintainer of this blog, Mitesh Shah. Right now I work as a Software Engineer in Microsoft and love to read up on various topics like Data Science, Machine Learning, Backend Development in my free time.
 
-I have been professionally writing code since 2019 (until then it was mostly academic) and while on my job, I get to learn a lot of things, things that I feel like sharing, or at least storing them for my own references later.
+I have been professionally writing code since 2019 (until then it was mostly academic) and while on my job, I have worked on writing scalable systems for Microsoft Azure. I get to learn a lot of things, things that I feel like sharing, or at least storing them for my own references later.
 
 ## Tech you can talk to me about:
 
