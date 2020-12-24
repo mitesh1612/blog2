@@ -11,9 +11,15 @@ So I was reading the book "Data Science from Scratch" by Joel Grus. I came acros
 
 ## A Quick Refresher on Conditional Probability
 
-Well if you forgot the definition of conditional probability, here is a small refresher for you. Say there are two events E and F. The probability that E happens given that we know F happens is represented using $$P(E|F)$$.
+Well if you forgot the definition of conditional probability, here is a small refresher for you. Say there are two events E and F. The probability that E happens given that we know F happens is represented using
 
-Mathematically, P(E|F) = P(E,F)/P(F). P(E,F) is the probability of both E and F happening.
+ $$P(E|F)$$
+ 
+Mathematically,
+
+$$P(E|F) = P(E,F)/P(F). P(E,F)$$
+
+ is the probability of both E and F happening.
 
 Well enough of a probability class, lets look at an interesting family now
 
@@ -29,11 +35,11 @@ Now here comes the interesting problem. "What is the probability of the event 'b
 
 This aint a test, so here is how we can easily calculate this using conditional probability
 
-P(B|G) = P(B,G)/P(G)
+$$P(B|G) = P(B,G)/P(G)$$
 
 T event B and G ("both children are girls and the older child is a girl") is just the event B. (Once you know that both children are girls, it’s necessarily true that the older child is a girl). Thus,
 
-P(B|G) = P(B,G)/P(G) = P(B)/P(G) = 1/2
+$$P(B|G) = P(B,G)/P(G) = P(B)/P(G) = 1/2$$
 
 This is mostly intuitive. Now can you guess "What is the probability of the event 'both children are girls' (B) conditional on the event that 'at least one of the children is a girl' (L)?"
 
@@ -41,7 +47,7 @@ Surprisingly, the answer to this question is different from the one before. Here
 
 As before, the event B and L ("both children are girls and at least one of the children is a girl") is just the event B. This means we have:
 
-P(B|L) = P(B,L)/P(L) = P(B)/P(L) = 1/3
+$$P(B|L) = P(B,L)/P(L) = P(B)/P(L) = 1/3$$
 
 How can this be the case? Well, if all you know is that at least one of the children is a girl, then it is twice as likely that the family has one boy and one girl than that it has both girls.
 
