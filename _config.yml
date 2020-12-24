@@ -58,12 +58,13 @@ annotations: false
 show_tags: true
 
 # Add your Google Analytics ID here if you have one and want to use it
-google_analytics: "ru5rvky8-dQ8SDLk4O2l_e5lCAAE486e-RNQgPlG7xM"
+google_analytics: ""
 
 exclude:
   - docker-compose.yml
   - action.yml
   - Makefile
+  - demo-post.txt
 
 # this setting allows you to keep pages organized in the _pages folder
 include:
