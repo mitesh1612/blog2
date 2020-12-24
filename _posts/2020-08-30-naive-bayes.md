@@ -18,11 +18,11 @@ There are a lot of ways to define what Bayes theorem represents. It can be thoug
 
 ![]({{ site.baseurl }}/images/2020-08-30-naive-bayes/bayesequation.png "Bayes Theorem Equation")
 
-This says that the gives the probability of event E occuring, given some event F occurs. Say event **E** represents our hypothesis and **F** represents the probability of obsering the data we observe. Then P(E|F) basically represents how much the data supports our assumption. Hence many times, Bayes theorem is also written like this
+This says that the gives the probability of event E occuring, given some event F occurs. Say event **E** represents our hypothesis and **F** represents the probability of obsering the data we observe. Then P(E/F) basically represents how much the data supports our assumption. Hence many times, Bayes theorem is also written like this
 
 ![]({{ site.baseurl }}/images/2020-08-30-naive-bayes/bayes2.png)
 
-The term P(Hypothesis) is also called **prior** or *prior beliefs*. Why prior? It is the degree of the conviction that the hypothesis is true *before we observe* the actual data. Remember, prior is the sometimes the trickiest terms to determine ([as mentioned later here](#the-horrors-of-prior)). The term P(Hypothesis|Data) is called the **posterior** probability, which represents "the possibility of the hypothesis, given the data". Posterior is usually build after seeing the data. The term P(Data|Hypothesis) is a fun one. It represents the probability of having obtained the data, given the hypothesis and is called the **likelihood** term. In that way, P(Data) is the **Evidence** we have, or the data we have.
+The term P(Hypothesis) is also called **prior** or *prior beliefs*. Why prior? It is the degree of the conviction that the hypothesis is true *before we observe* the actual data. Remember, prior is the sometimes the trickiest terms to determine ([as mentioned later here](#the-horrors-of-prior)). The term P(Hypothesis/Data) is called the **posterior** probability, which represents "the possibility of the hypothesis, given the data". Posterior is usually build after seeing the data. The term P(Data/Hypothesis) is a fun one. It represents the probability of having obtained the data, given the hypothesis and is called the **likelihood** term. In that way, P(Data) is the **Evidence** we have, or the data we have.
 
 The evidence term can be broken as
 
@@ -44,7 +44,7 @@ Sometime ago, there was a scam on twitter where accounts of [famous people like 
 
 ![]({{ site.baseurl }}/images/2020-08-30-naive-bayes/spameqn.png)
 
-The numerator is the probability that a message is spam *and* contains *bitcoin*, while the denominator is just the probability that a message contains *bitcoin*. How? P(B|S)P(S) = P(B,S) using the definition of conditional probablity (on which I did write a [fun post you can read here](http://mitesh1612.github.io/blog/Conditional-Probability-and-Families)) and the denominator is essentially P(B). In this sense, we can think of this calculation simply representing the **proportion** of *bitcoin* messages are spam.
+The numerator is the probability that a message is spam *and* contains *bitcoin*, while the denominator is just the probability that a message contains *bitcoin*. How? P(B/S)P(S) = P(B,S) using the definition of conditional probablity (on which I did write a [fun post you can read here](http://mitesh1612.github.io/blog/Conditional-Probability-and-Families)) and the denominator is essentially P(B). In this sense, we can think of this calculation simply representing the **proportion** of *bitcoin* messages are spam.
 
 Say we have a large number of messages that we know are **spam** and a large collection of messages that we know are **ham** (the word used for not spam commonly). Using that we can easily estimate P(B/S) and P(B/S'). Let's make an assumption that it is equally likely that a message is spam or ham. Then P(S) = P(S') = 0.5. Taking out the common term in the above equation, we get
 
@@ -86,13 +86,13 @@ Now the only problem is estimating P(Xi/S) and P(Xi/S'), the probabilities that 
 
 #### Being Smooth
 
-While this calculation seems reasonable, it has a huge problem. Say, in our training messages, the word "data" only occurs in nonspam messages. Then we’d estimate P(data|S)=0. The result is that our Naive Bayes classifier would always assign spam probability 0 to any message containing the word *data*, even a message like “data on free bitcoin and 26 kt gold free.” To avoid this, we usually use some kind of **smoothing**. One of the simplest ways is to choose a pseudo count `k` (basically assuming that there are atleast `k` spam/ham messages containing the given word i). This gives us the following equation for estimating the probability of seeing the ith word in a spam or ham message as follows:
+While this calculation seems reasonable, it has a huge problem. Say, in our training messages, the word "data" only occurs in nonspam messages. Then we’d estimate P(data/S)=0. The result is that our Naive Bayes classifier would always assign spam probability 0 to any message containing the word *data*, even a message like “data on free bitcoin and 26 kt gold free.” To avoid this, we usually use some kind of **smoothing**. One of the simplest ways is to choose a pseudo count `k` (basically assuming that there are atleast `k` spam/ham messages containing the given word i). This gives us the following equation for estimating the probability of seeing the ith word in a spam or ham message as follows:
 
 ![smoothed equation](https://render.githubusercontent.com/render/math?math=P(X_i%7CS)%20%3D%20%5Cfrac%7B(k%20%2B%20%5C%23%20of%20spams%20containing%20w_i)%7D%7B(2k%20%2B%20%5C%23%20of%20spams)%7D%0D)
 
-We can do similarly for P(Xi|S') where in we assume we also saw k additional nonspams containing the word and k additional nonspams not containing the word.
+We can do similarly for P(Xi/S') where in we assume we also saw k additional nonspams containing the word and k additional nonspams not containing the word.
 
-For example, if data occurs in 0/98 spam messages, and if k is 1, we estimate P(data|S) as 1/100 = 0.01, which allows our classifier to still assign some nonzero spam probability to messages that contain the word *data*.
+For example, if data occurs in 0/98 spam messages, and if k is 1, we estimate P(data/S) as 1/100 = 0.01, which allows our classifier to still assign some nonzero spam probability to messages that contain the word *data*.
 
 ### Code Implementation
 
@@ -132,12 +132,12 @@ def train(self, messages):
                 self.token_ham_counts[token] += 1
 ```
 
-Ultimately we’ll want to predict P(spam | token). As we saw earlier, to apply Bayes’s theorem we need to know P(token / spam) and P(token / ham) for each token in the vocabulary. So we’ll create a helper function to compute those. (`_probabilities`)
+Ultimately we’ll want to predict P(spam / token). As we saw earlier, to apply Bayes’s theorem we need to know P(token / spam) and P(token / ham) for each token in the vocabulary. So we’ll create a helper function to compute those. (`_probabilities`)
 
 ```python
 def _probabilities(self, token):
     """
-    Returns P(token|spam) and P(token|ham)
+    Returns P(token/spam) and P(token/ham)
     """
     spam = self.token_spam_counts[token]
     ham = self.token_ham_counts[token]
