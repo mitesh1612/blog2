@@ -132,26 +132,11 @@ window.onload = wrap_img;
 
 <p><img src="/blog/images/2020-08-30-naive-bayes/bayesequation.png" alt="" title="Bayes Theorem Equation" /></p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>This says that the gives the probability of event E occuring, given some event F occurs. Say event <strong>E</strong> represents our hypothesis and <strong>F</strong> represents the probability of obsering the data we observe. Then P(E</td>
-      <td>F) basically represents how much the data supports our assumption. Hence many times, Bayes theorem is also written like this</td>
-    </tr>
-  </tbody>
-</table>
+<p>This says that the gives the probability of event E occuring, given some event F occurs. Say event <strong>E</strong> represents our hypothesis and <strong>F</strong> represents the probability of obsering the data we observe. Then P(E/F) basically represents how much the data supports our assumption. Hence many times, Bayes theorem is also written like this</p>
 
 <p><img src="/blog/images/2020-08-30-naive-bayes/bayes2.png" alt="" /></p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>The term P(Hypothesis) is also called <strong>prior</strong> or <em>prior beliefs</em>. Why prior? It is the degree of the conviction that the hypothesis is true <em>before we observe</em> the actual data. Remember, prior is the sometimes the trickiest terms to determine (<a href="#the-horrors-of-prior">as mentioned later here</a>). The term P(Hypothesis</td>
-      <td>Data) is called the <strong>posterior</strong> probability, which represents “the possibility of the hypothesis, given the data”. Posterior is usually build after seeing the data. The term P(Data</td>
-      <td>Hypothesis) is a fun one. It represents the probability of having obtained the data, given the hypothesis and is called the <strong>likelihood</strong> term. In that way, P(Data) is the <strong>Evidence</strong> we have, or the data we have.</td>
-    </tr>
-  </tbody>
-</table>
+<p>The term P(Hypothesis) is also called <strong>prior</strong> or <em>prior beliefs</em>. Why prior? It is the degree of the conviction that the hypothesis is true <em>before we observe</em> the actual data. Remember, prior is the sometimes the trickiest terms to determine (<a href="#the-horrors-of-prior">as mentioned later here</a>). The term P(Hypothesis/Data) is called the <strong>posterior</strong> probability, which represents “the possibility of the hypothesis, given the data”. Posterior is usually build after seeing the data. The term P(Data/Hypothesis) is a fun one. It represents the probability of having obtained the data, given the hypothesis and is called the <strong>likelihood</strong> term. In that way, P(Data) is the <strong>Evidence</strong> we have, or the data we have.</p>
 
 <p>The evidence term can be broken as</p>
 
@@ -173,14 +158,7 @@ window.onload = wrap_img;
 
 <p><img src="/blog/images/2020-08-30-naive-bayes/spameqn.png" alt="" /></p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>The numerator is the probability that a message is spam <em>and</em> contains <em>bitcoin</em>, while the denominator is just the probability that a message contains <em>bitcoin</em>. How? P(B</td>
-      <td>S)P(S) = P(B,S) using the definition of conditional probablity (on which I did write a <a href="http://mitesh1612.github.io/blog/Conditional-Probability-and-Families">fun post you can read here</a>) and the denominator is essentially P(B). In this sense, we can think of this calculation simply representing the <strong>proportion</strong> of <em>bitcoin</em> messages are spam.</td>
-    </tr>
-  </tbody>
-</table>
+<p>The numerator is the probability that a message is spam <em>and</em> contains <em>bitcoin</em>, while the denominator is just the probability that a message contains <em>bitcoin</em>. How? P(B/S)P(S) = P(B,S) using the definition of conditional probablity (on which I did write a <a href="http://mitesh1612.github.io/blog/Conditional-Probability-and-Families">fun post you can read here</a>) and the denominator is essentially P(B). In this sense, we can think of this calculation simply representing the <strong>proportion</strong> of <em>bitcoin</em> messages are spam.</p>
 
 <p>Say we have a large number of messages that we know are <strong>spam</strong> and a large collection of messages that we know are <strong>ham</strong> (the word used for not spam commonly). Using that we can easily estimate P(B/S) and P(B/S’). Let’s make an assumption that it is equally likely that a message is spam or ham. Then P(S) = P(S’) = 0.5. Taking out the common term in the above equation, we get</p>
 
@@ -222,34 +200,13 @@ window.onload = wrap_img;
 
 <h4 id="being-smooth">Being Smooth</h4>
 
-<table>
-  <tbody>
-    <tr>
-      <td>While this calculation seems reasonable, it has a huge problem. Say, in our training messages, the word “data” only occurs in nonspam messages. Then we’d estimate P(data</td>
-      <td>S)=0. The result is that our Naive Bayes classifier would always assign spam probability 0 to any message containing the word <em>data</em>, even a message like “data on free bitcoin and 26 kt gold free.” To avoid this, we usually use some kind of <strong>smoothing</strong>. One of the simplest ways is to choose a pseudo count <code class="language-plaintext highlighter-rouge">k</code> (basically assuming that there are atleast <code class="language-plaintext highlighter-rouge">k</code> spam/ham messages containing the given word i). This gives us the following equation for estimating the probability of seeing the ith word in a spam or ham message as follows:</td>
-    </tr>
-  </tbody>
-</table>
+<p>While this calculation seems reasonable, it has a huge problem. Say, in our training messages, the word “data” only occurs in nonspam messages. Then we’d estimate P(data/S)=0. The result is that our Naive Bayes classifier would always assign spam probability 0 to any message containing the word <em>data</em>, even a message like “data on free bitcoin and 26 kt gold free.” To avoid this, we usually use some kind of <strong>smoothing</strong>. One of the simplest ways is to choose a pseudo count <code class="language-plaintext highlighter-rouge">k</code> (basically assuming that there are atleast <code class="language-plaintext highlighter-rouge">k</code> spam/ham messages containing the given word i). This gives us the following equation for estimating the probability of seeing the ith word in a spam or ham message as follows:</p>
 
 <p><img src="https://render.githubusercontent.com/render/math?math=P(X_i%7CS)%20%3D%20%5Cfrac%7B(k%20%2B%20%5C%23%20of%20spams%20containing%20w_i)%7D%7B(2k%20%2B%20%5C%23%20of%20spams)%7D%0D" alt="smoothed equation" /></p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>We can do similarly for P(Xi</td>
-      <td>S’) where in we assume we also saw k additional nonspams containing the word and k additional nonspams not containing the word.</td>
-    </tr>
-  </tbody>
-</table>
+<p>We can do similarly for P(Xi/S’) where in we assume we also saw k additional nonspams containing the word and k additional nonspams not containing the word.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>For example, if data occurs in 0/98 spam messages, and if k is 1, we estimate P(data</td>
-      <td>S) as 1/100 = 0.01, which allows our classifier to still assign some nonzero spam probability to messages that contain the word <em>data</em>.</td>
-    </tr>
-  </tbody>
-</table>
+<p>For example, if data occurs in 0/98 spam messages, and if k is 1, we estimate P(data/S) as 1/100 = 0.01, which allows our classifier to still assign some nonzero spam probability to messages that contain the word <em>data</em>.</p>
 
 <h3 id="code-implementation">Code Implementation</h3>
 
@@ -287,18 +244,11 @@ window.onload = wrap_img;
                 <span class="bp">self</span><span class="p">.</span><span class="n">token_ham_counts</span><span class="p">[</span><span class="n">token</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div></div>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Ultimately we’ll want to predict P(spam</td>
-      <td>token). As we saw earlier, to apply Bayes’s theorem we need to know P(token / spam) and P(token / ham) for each token in the vocabulary. So we’ll create a helper function to compute those. (<code class="language-plaintext highlighter-rouge">_probabilities</code>)</td>
-    </tr>
-  </tbody>
-</table>
+<p>Ultimately we’ll want to predict P(spam / token). As we saw earlier, to apply Bayes’s theorem we need to know P(token / spam) and P(token / ham) for each token in the vocabulary. So we’ll create a helper function to compute those. (<code class="language-plaintext highlighter-rouge">_probabilities</code>)</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_probabilities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
     <span class="s">"""
-    Returns P(token|spam) and P(token|ham)
+    Returns P(token/spam) and P(token/ham)
     """</span>
     <span class="n">spam</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">token_spam_counts</span><span class="p">[</span><span class="n">token</span><span class="p">]</span>
     <span class="n">ham</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">token_ham_counts</span><span class="p">[</span><span class="n">token</span><span class="p">]</span>
