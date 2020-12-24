@@ -4,17 +4,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Mitesh Shah’s Blog | Mitesh Shah’s Developer Blog, made using Fastpages</title>
+<title>An Example Markdown Post | Mitesh Shah’s Blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Mitesh Shah’s Blog" />
+<meta property="og:title" content="An Example Markdown Post" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Mitesh Shah’s Developer Blog, made using Fastpages" />
-<meta property="og:description" content="Mitesh Shah’s Developer Blog, made using Fastpages" />
-<link rel="canonical" href="https://mitesh1612.github.io/blog/404.html" />
-<meta property="og:url" content="https://mitesh1612.github.io/blog/404.html" />
+<meta name="description" content="A minimal example of using markdown with fastpages." />
+<meta property="og:description" content="A minimal example of using markdown with fastpages." />
+<link rel="canonical" href="https://mitesh1612.github.io/blog/demo-post.txt" />
+<meta property="og:url" content="https://mitesh1612.github.io/blog/demo-post.txt" />
 <meta property="og:site_name" content="Mitesh Shah’s Blog" />
 <script type="application/ld+json">
-{"url":"https://mitesh1612.github.io/blog/404.html","@type":"WebPage","headline":"Mitesh Shah’s Blog","description":"Mitesh Shah’s Developer Blog, made using Fastpages","@context":"https://schema.org"}</script>
+{"url":"https://mitesh1612.github.io/blog/demo-post.txt","@type":"WebPage","headline":"An Example Markdown Post","description":"A minimal example of using markdown with fastpages.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://mitesh1612.github.io/blog/feed.xml" title="Mitesh Shah's Blog" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -88,26 +88,144 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-<div class="container">
-  <h1>404</h1>
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">An Example Markdown Post</h1><p class="page-description">A minimal example of using markdown with fastpages.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="" itemprop="datePublished">
+        
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#markdown">markdown</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+</ul># Example Markdown Post
+
+## Basic setup
+
+Jekyll requires blog post files to be named according to the following format:
+
+`YEAR-MONTH-DAY-filename.md`
+
+Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `filename` is whatever file name you choose, to remind yourself what this post is about. `.md` is the file extension for markdown files.
+
+The first line of the file should start with a single hash character, then a space, then your title. This is how you create a "*level 1 heading*" in markdown. Then you can create level 2, 3, etc headings as you wish but repeating the hash character, such as you see in the line `## File names` above.
+
+## Basic formatting
+
+You can use *italics*, **bold**, `code font text`, and create [links](https://www.markdownguide.org/cheat-sheet/). Here's a footnote [^1]. Here's a horizontal rule:
+
+---
+
+## Lists
+
+Here's a list:
+
+- item 1
+- item 2
+
+And a numbered list:
+
+1. item 1
+1. item 2
+
+## Boxes and stuff
+
+&gt; This is a quotation
+
+<div class="Toast Toast--warning googoo">
+   <span class="Toast-icon"><svg class="octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg></span>
+   <span class="Toast-content">You can include alert boxes</span>
 </div>
 
+
+...and...
+
+<div class="Toast">
+   <span class="Toast-icon"><svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg></span>
+   <span class="Toast-content">You can include info boxes</span>
+</div>
+
+
+## Images
+
+![](/blog/images/logo.png "fast.ai's logo")
+
+## Code
+
+You can format text and code per usual 
+
+General preformatted text:
+
+    # Do a thing
+    do_thing()
+
+Python code and output:
+
+```python
+# Prints '2'
+print(1+1)
+```
+
+    2
+
+Formatting text as shell commands:
+
+```shell
+echo "hello world"
+./some_script.sh --option "value"
+wget https://example.com/cat_photo1.png
+```
+
+Formatting text as YAML:
+
+```yaml
+key: value
+- another_key: "another value"
+```
+
+
+## Tables
+
+| Column 1 | Column 2 |
+|-|-|
+| A thing | Another thing |
+
+
+## Tweetcards
+
+<div class="jekyll-twitter-plugin">
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">Altair 4.0 is released! <a href="https://t.co/PCyrIOTcvv">https://t.co/PCyrIOTcvv</a><br>Try it with:<br><br>  pip install -U altair<br><br>The full list of changes is at <a href="https://t.co/roXmzcsT58">https://t.co/roXmzcsT58</a> ...read on for some highlights. <a href="https://t.co/vWJ0ZveKbZ">pic.twitter.com/vWJ0ZveKbZ</a></p>— Jake VanderPlas (@jakevdp) <a href="https://twitter.com/jakevdp/status/1204765621767901185?ref_src=twsrc%5Etfw">December 11, 2019</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+
+## Footnotes
+
+
+
+[^1]: This is the footnote.
+
+
+  </div><a class="u-url" href="/blog/demo-post.txt" hidden></a>
+</article>
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/blog/"></data>
