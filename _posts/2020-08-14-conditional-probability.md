@@ -11,7 +11,7 @@ So I was reading the book "Data Science from Scratch" by Joel Grus. I came acros
 
 ## A Quick Refresher on Conditional Probability
 
-Well if you forgot the definition of conditional probability, here is a small refresher for you. Say there are two events E and F. The probability that E happens given that we know F happens is represented using P(E|F).
+Well if you forgot the definition of conditional probability, here is a small refresher for you. Say there are two events E and F. The probability that E happens given that we know F happens is represented using $$P(E|F)$$.
 
 Mathematically, P(E|F) = P(E,F)/P(F). P(E,F) is the probability of both E and F happening.
 
