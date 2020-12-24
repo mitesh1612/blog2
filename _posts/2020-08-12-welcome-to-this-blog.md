@@ -8,7 +8,7 @@ image: images/2020-08-12-welcome-to-this-blog/hero.jpg
 comments: true
 ---
 
-# Welcome to this blog
+## Welcome to this blog
 
 Hey everyone, welcome to my blog. I finally took the leap and set up my blog, and after a lot of thinking, I finally decided to create a blog.
 
@@ -16,14 +16,14 @@ Why a blog? Well among a lot of other reasons, like not forgetting what I learn 
 
 Thanks for visiting this blog!
 
-# About Me
+## About Me
 
 I'm Mitesh Shah, and I live in Hyderabad. I started my journey as a Software Engineer at Microsoft (where I currently work). I have a lot of interest in Data Science and Machine Learning and I love reading books or playing some games in my relaxing time.
 
-# Technical Details for this Blog
+## Technical Details for this Blog
 
 This blog is possible due to [Gatsby JS](https://www.gatsbyjs.org/) with the wonderful theme [Novela](https://github.com/narative/gatsby-theme-novela) created by the Narative Team. Right now this site is hosted on GitHub pages using a CI from GitHub Actions
 
-# Update : 24-12-2020
+## Update : 24-12-2020
 
 Since then, I have moved this blog to Fastpages. The links in this post are updated now.
