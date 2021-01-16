@@ -21,6 +21,10 @@ If you've been following the blog, you might have noticed that I have been worki
 
 So I had heard about Xamarin University when I first read about Xamarin. But then I saw that it got closed and some of its content was available on YouTube and their public GitHub repo which is archived. Now I didn't have much time to go through various public repos and old videos, plus I prefer reading + doing a tad bit more for learning. So I went to the place where Xamarin University went, **Microsoft Learn**. I saw two main modules that I feel should give me a good enough intro to Xamarin. First is the module [Build Mobile Apps with Xamarin](https://docs.microsoft.com/en-us/learn/paths/build-mobile-apps-with-xamarin-forms/) and then I plan to continue with [Customize Xamarin Forms App & Advanced Features](https://docs.microsoft.com/en-us/learn/paths/customize-your-xamarin-forms-apps/). Along the way I also plan to read a few books (and if needed watch a video or two). In terms of books, I have two on my radar. First is [Xamarin in Action](https://learning.oreilly.com/library/view/xamarin-in-action/9781617294389/) to understand the MVVM pattern and how to write good and testable code. Second is [Xamarin Projects](https://learning.oreilly.com/library/view/xamarinforms-projects-/9781839210051/) to see examples of how to build certain things with Xamarin in action.
 
+## On a side note
+
+I know my reasons/issues for choosing Xamarin are weird, and superficial and might not even match to your reasons/issues. Kotlin might be better if you are planning to do full time Android Development, React Native if you already know React and JS well and Dart if you want to learn an awesome new tooling. That being said, do give Xamarin a try.
+
 I'll definitely keep you, my readers updated with my experience and pitfalls of using Xamarin and C#, and my progress with this app I'm trying to write.
 
 Do comment if you have suggestions for resources to learn Xamarin, or if you want to share your experience of using Xamarin. Until next time. 😀
